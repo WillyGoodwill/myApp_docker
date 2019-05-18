@@ -11,6 +11,8 @@ library(shiny)
 library(shinydashboard)
 library(shinyWidgets)
 
+print("test")
+
 shinyUI(fluidPage(dashboardPage(
   dashboardHeader(
      title="Modelling Tool", 
