@@ -6,7 +6,7 @@ library(shinyWidgets)
 
 #print("test")
 
-shinyUI(fluidPage(dashboardPage(
+ui<-fluidPage(dashboardPage(
   dashboardHeader(
      title="Modelling Tool", 
      titleWidth=290),
@@ -19,4 +19,5 @@ shinyUI(fluidPage(dashboardPage(
 
 dashboardBody()
 
-)))
+))
+
