@@ -6,9 +6,10 @@ library(shinyWidgets)
 source("SideBarMenu.R")
 
 
-server<-function(input, output, session) {    
+shinyServer(function (input, output, session) {    
     output$menu<-renderMenu({
       sidebarMenuFunc()
     })
-  }
+  })
+  
 
