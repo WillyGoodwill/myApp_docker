@@ -4,7 +4,7 @@ library(shiny)
 library(shinydashboard)
 library(shinyWidgets)
 
-print("test")
+#print("test")
 
 shinyUI(fluidPage(dashboardPage(
   dashboardHeader(

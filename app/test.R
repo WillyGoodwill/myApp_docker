@@ -1,6 +1,6 @@
 library(shiny)  
 #run from git   
-runGitHub("myApp_tobedeleted", "WillyGoodwill")  
+runGitHub("myApp_docker", "WillyGoodwill")  
 #in concole
 runApp()
 
