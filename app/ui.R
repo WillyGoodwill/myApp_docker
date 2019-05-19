@@ -4,7 +4,6 @@ library(shiny)
 library(shinydashboard)
 library(shinyWidgets)
 
-#print("test")
 
 ui<-fluidPage(dashboardPage(
   dashboardHeader(

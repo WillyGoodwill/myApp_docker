@@ -1,9 +1,12 @@
 
 library(shiny)
+library(shinydashboard)
+library(shinyWidgets)
+
+source("SideBarMenu.R")
+
 
 server<-function(input, output, session) {    
-    #callModule(dropDown, id = "dropdown")
-
     output$menu<-renderMenu({
       sidebarMenuFunc()
     })
