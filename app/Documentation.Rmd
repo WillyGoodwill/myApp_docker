@@ -1,0 +1,28 @@
+---
+title: "Documentation for Modelling App"
+date: '17 May 2019'
+author: 'Olga Lazunina'
+runtime: shiny
+output:
+    html_document: default
+    pdf_document: default
+    word_document: default
+params: null
+---
+# Modelling Rshiny App documentation
+## 1. Creating dashboardSidebar
+1.1. Create func in separate R file which: 
+* create sidebar menu with all html elements or rshinywidgets 
+* call function that collapses menu items *convertMenuItem()*
+* call function dropdown menu that stores checkboxes as dropdown collapsible list 
+
+1.2. Source the functions from Global.R file
+
+1.3. Create output variable that renders sidebar menu in server.R
+
+1.4. Create dashboardSidebar function in ui.R which:
+* set width of sidebar menu
+* store id of sidebar
+* call the output from the server
+
+
