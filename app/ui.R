@@ -15,6 +15,8 @@ shinyUI(fluidPage(dashboardPage(
                                         tags$head(tags$style(".container {border:2px solid white; width: 100%;overflow-y: scroll;}")), #height:490px; 
                                         tags$head(tags$style(".dropdown {margin-left:10px;}")),
                                         tags$head(tags$style(".test {background-color: #000000;}"))
-                                    ),  
-dashboardBody1
+                                    ),
+
+dashboardBody()
+
 )))
