@@ -50,10 +50,10 @@ sidebarMenuFunc<-function(){
                             div(id='test',
                             dropdownButton(label = "Check some boxes", status = "primary", width = 260,
                                         tags$div(class="container",
-                                            checkboxGroupInput(inputId = "controlGroup",'',choices = c('report1','report2','report3','report4'), width=260,selected=c('group1'))
+                                            checkboxGroupInput(inputId = "ctrlReport",'',choices = c('report1','report2','report3','report4'), width=260,selected=c('group1'))
                                             )   
                                 ),
-                            checkboxGroupInput(inputId="ctrlCtry",'Select country',
+                            checkboxGroupInput(inputId="ctrlCountry",'Select country',
                                 choices=c('US','UK','RU','CH'),
                                 inline=TRUE,
                                 width='260',
@@ -87,4 +87,28 @@ sidebarMenuFunc<-function(){
                     ),'m3')
     
     )
+}
+
+createBox<-function(m){
+    tabBox(
+        title=paste0("title",m),
+        id=paste0("tabset",m),
+        #height="350px",
+        tabPanel(
+            value="1",
+            title="tab1"
+            
+        ),
+        tabPanel(
+            value="2",
+            title="tab2"
+            
+        ),tabPanel(
+            value="3",
+            title="tab3"
+            
+        )
+
+    )
+
 }

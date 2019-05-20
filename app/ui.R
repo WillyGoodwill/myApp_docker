@@ -16,7 +16,33 @@ shinyUI(fluidPage(dashboardPage(
                                         tags$head(tags$style(".test {background-color: #000000;}"))
                                     ),
 
-dashboardBody()
+dashboardBody(
+      tabItems(
+         tabItem(
+            tabName="m1",
+            fluidRow(
+               p("Print test output 1"),
+               uiOutput('ui')
+            )
+         ),
+          tabItem(
+            tabName="m2",
+            fluidRow(
+               p("Print test output 2")
+
+            )
+         ),
+          tabItem(
+            tabName="m3",
+            fluidRow(
+               p("Print test output 3")
+
+            )
+         )
+
+      )
+   )
+
 
 ))
 )
