@@ -3,12 +3,12 @@ library(shiny)
 library(shinydashboard)
 library(shinyWidgets)
 
-source("SideBarMenu.R")
+source("functions_global.R")
 
 
 shinyServer(function (input, output, session) {    
   rv<-reactiveValues()
-  
+
 # call functions that creates sidebar menu  
   output$menu<-renderMenu({
     sidebarMenuFunc()
