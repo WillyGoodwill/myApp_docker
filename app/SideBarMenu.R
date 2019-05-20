@@ -1,6 +1,7 @@
 library(shiny)
 library(shinydashboard)
 
+#  function for sidebarmenu that creates dropdown control with checkboxes inside
 dropdownButton<-function(label="Select",status=c("default","primary"), ...,width = NULL){
     status<-match.arg(status)
     #content
@@ -33,6 +34,7 @@ dropdownButton<-function(label="Select",status=c("default","primary"), ...,width
             )
             
 }
+# adding treeview option to children to collapse/expand 
 convertMenuItem<-function(mi,tabName){
     mi$children[[1]]$attribs['data-toggle']="tab"
     mi$children[[1]]$attribs['data-value']=tabName
@@ -42,53 +44,56 @@ convertMenuItem<-function(mi,tabName){
     mi
 }
 
+#creating sidebarmenu with controls 
 sidebarMenuFunc<-function(){
-    sidebarMenu(convertMenuItem(
-                    menuItem("Data",
-                            tabName="m1",
-                            icon=icon("th"),
-                            div(id='test',
-                            dropdownButton(label = "Check some boxes", status = "primary", width = 260,
-                                        tags$div(class="container",
-                                            checkboxGroupInput(inputId = "ctrlReport",'',choices = c('report1','report2','report3','report4'), width=260,selected=c('group1'))
-                                            )   
-                                ),
-                            checkboxGroupInput(inputId="ctrlCountry",'Select country',
-                                choices=c('US','UK','RU','CH'),
-                                inline=TRUE,
-                                width='260',
-                                selected='FI'),
-                            splitLayout(cellWidth=c('50%','50%'),
-                                dateInput(inputId='datefrom','From',format='mm/yyyy',value=Sys.Date()-70),
-                                dateInput(inputId='dateto','To',format='mm/yyyy',value=Sys.Date()-50)
-                            ),
-                            selectInput(inputId='ctrlFlag','Select risk flag1',c('Y','N'), multiple=FALSE,selected='Y'),
-                            actionButton(inputId="ctrlBtn",
-                                label="Load data",
-                                width=260,
-                                style='color:white;
-                                background-color: #367fa9;
-                                border-width: 0px;'
-                            )
-                            )
+    sidebarMenu(
+        convertMenuItem(
+        menuItem("Data",
+                tabName="m1",
+                icon=icon("th"),
+                div(id='test',
+                dropdownButton(label = "Check some boxes", status = "primary", width = 260,
+                            tags$div(class="container",
+                                checkboxGroupInput(inputId = "ctrlReport",'',choices = c('report1','report2','report3','report4'), width=260,selected=c('group1'))
+                                )   
+                    ),
+                checkboxGroupInput(inputId="ctrlCountry",'Select country',
+                    choices=c('US','UK','RU','CH'),
+                    inline=TRUE,
+                    width='260',
+                    selected='FI'),
+                splitLayout(cellWidth=c('50%','50%'),
+                    dateInput(inputId='datefrom','From',format='mm/yyyy',value=Sys.Date()-70),
+                    dateInput(inputId='dateto','To',format='mm/yyyy',value=Sys.Date()-50)
+                ),
+                selectInput(inputId='ctrlFlag','Select risk flag1',c('Y','N'), multiple=FALSE,selected='Y'),
+                actionButton(inputId="ctrlBtn",
+                    label="Load data",
+                    width=260,
+                    style='color:white;
+                    background-color: #367fa9;
+                    border-width: 0px;'
+                )
+                )
                             
-                    ),'m1'),
-                convertMenuItem(
-                    menuItem("Analysis",
-                            tabName="m2",
-                            icon=icon("th")
-                            
-                    ),'m2'),
-                convertMenuItem(
-                    menuItem("Charts",
-                            tabName="m3",
-                            icon=icon("bar-chart-o")
-                            
-                    ),'m3')
+        ),'m1'),
+        convertMenuItem(
+        menuItem("Analysis",
+                tabName="m2",
+                icon=icon("th")
+                
+        ),'m2'),
+        convertMenuItem(
+        menuItem("Charts",
+                tabName="m3",
+                icon=icon("bar-chart-o")
+                
+            ),'m3')
     
     )
 }
 
+#function that creates tabBox with tabPanels as the result of reaction on Load data button 
 createBox<-function(m){
     tabBox(
         title=paste0("title",m),

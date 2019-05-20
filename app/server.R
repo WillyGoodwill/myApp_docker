@@ -9,10 +9,13 @@ source("SideBarMenu.R")
 shinyServer(function (input, output, session) {    
   rv<-reactiveValues()
   
+# call functions that creates sidebar menu  
   output$menu<-renderMenu({
     sidebarMenuFunc()
   })
 
+# observe event for Load data button
+# creates tabBoxes with tabPanels in dashboardbody
   observeEvent(input$ctrlBtn,{
     rv$box<-NULL
     k<<-1
